@@ -15,6 +15,8 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import NotFound from './pages/NotFound';
 import { Loader2 } from 'lucide-react';
+import InvoicePage from './pages/InvoicePage';
+import Invoice from './pages/InvoicePage';
 
 const AppRoutes: React.FC = () => {
   const { isLoading, isAuthenticated } = useAuth();
@@ -31,7 +33,7 @@ const AppRoutes: React.FC = () => {
     <>
       <Routes>
 
-        <Route path='test' element={<ExpenseCalculator />} />
+        <Route path='/invoice' element={<Invoice />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
 
@@ -57,7 +59,15 @@ const AppRoutes: React.FC = () => {
             path="/analytics"
             element={
               <ProtectedRoute>
-                <Analytics />
+                <InvoicePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/testinvoice"
+            element={
+              <ProtectedRoute>
+                <InvoicePage />
               </ProtectedRoute>
             }
           />
